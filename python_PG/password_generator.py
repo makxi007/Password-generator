@@ -11,10 +11,27 @@ def formulate_easy(values):
 	value = 0
 	result = ""
 	for i in range(length):
-		value = randint(0, len(values))
+		value = randint(0, len(values) - 1)
 		result += values[value]
 	print(result)
 
+def formulate_medium(values):
+	length = randint(5, 17)
+	value = 0
+	result = ""
+	for i in range(length):
+		value = randint(0, len(values) - 1)
+		result += values[value]
+	print(result)
+
+def formulate_strong(values):
+	length = randint(5, 20)
+	value = 0
+	result = ""
+	for i in range(length):
+		value = randint(0, len(values) - 1)
+		result += values[value]
+	print(result)
 
 print("Hello.\nThis is a password generator choose the password power: ")
 print(
@@ -29,7 +46,9 @@ password_power = int(input("Your choice -> "))
 
 if ( password_power == 1 ):
 	formulate_easy(lower_case+digits)
-
-
+elif ( password_power == 2):
+	formulate_medium(lower_case+upper_case+digits)
+elif ( password_power == 3):
+	formulate_strong(lower_case+upper_case+digits+punctuation)
 
 
