@@ -5,15 +5,30 @@ punctuation = string.punctuation
 lower_case = string.ascii_lowercase
 upper_case = string.ascii_uppercase
 digits = string.digits
+is_special_w = False
 
-def formulate_easy(values):
-	length = randint(5, 11)
-	value = 0
-	result = ""
-	for i in range(length):
-		value = randint(0, len(values) - 1)
-		result += values[value]
-	print(result)
+def formulate_easy(values, special):
+	if ( special == "no" ):
+		length = randint(5, 11)
+		value = 0
+		result = ""
+		for i in range(length):
+			value = randint(0, len(values) - 1)
+			result += values[value]
+		print(result)
+	else:
+		#special = special.split("_")
+		length = randint(5, 11)
+		value = 0
+		result = ""
+		for i in range(length):
+			value = randint(0, len(values) - 1)
+			result += values[value]
+		print(result)
+		value = randint(0, len(result) - 1)
+		result = result[:value] + special + result[value+1:]
+		print(value, "!!!", result)
+
 
 def formulate_medium(values):
 	length = randint(5, 17)
@@ -43,9 +58,21 @@ print(
 )
 
 password_power = int(input("Your choice -> "))
+print("Special word or words? If not just type 'space'")
+special_w = list(map(str, input("Word(s) -> ").split()))
+if ( len(special_w) != 0 ):
+	is_special_w = True
+print(special_w)
 
 if ( password_power == 1 ):
-	formulate_easy(lower_case+digits)
+	if is_special_w:
+		formulate_easy(lower_case+digits, "_".join(special_w))
+	else:
+		formulate_easy(lower_case+digits, "no")
+
+
+
+
 elif ( password_power == 2):
 	formulate_medium(lower_case+upper_case+digits)
 elif ( password_power == 3):
