@@ -27,22 +27,37 @@ def formulate_easy(values, special):
 	return result
 
 
-def formulate_medium(values):
+def formulate_medium(values, special):
 	length = randint(5, 17)
 	value = 0
 	result = ""
-	for i in range(length):
-		value = randint(0, len(values) - 1)
-		result += values[value]
+	if ( special == "no" ):
+		for i in range(length):
+			value = randint(0, len(values) - 1)
+			result += values[value]
+	else:
+		for i in range(length):
+			value = randint(0, len(values) - 1)
+			result += values[value]
+		value = randint(0, len(result) - 1)
+		result = result[:value] + special + result[value+1:]
 	print(result)
 
-def formulate_strong(values):
+def formulate_strong(values, special):
 	length = randint(5, 20)
 	value = 0
 	result = ""
-	for i in range(length):
-		value = randint(0, len(values) - 1)
-		result += values[value]
+	if special == "no":
+		for i in range(length):
+			value = randint(0, len(values) - 1)
+			result += values[value]
+	else:
+		for i in range(length):
+			value = randint(0, len(values) - 1)
+			result += values[value]
+		value = randint(0, len(result) - 1)
+		result = result[:value] + special + result[value+1:]
+
 	print(result)
 
 print("Hello.\nThis is a password generator choose the password power: ")
