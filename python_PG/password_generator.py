@@ -93,3 +93,5 @@ elif ( password_power == 3):
 		password = formulate_strong(lower_case+upper_case+digits+punctuation, "no")
 
 print(password)
+
+input()
