@@ -1,6 +1,17 @@
 # Password-generator
-Description so easy. This is programm which just "Generate password"
-Sometimes you need to come up with new password. For site or other reasons. And I have thought about to come up with a program for generation password. Simple passwords with "special word" which you can put in the password. By "special word" I mean every any word which you'll come up with.
+This is programm which just "Generate password"
+How to use:<br />
+Clone repository
+```
+git clone https://github.com/makxi007/Password-generator.git
+```
+Then
+```
+cd python_PG
+```
+```
+python3 password_generator.py
+```
 
 # What I learned from this project:
 1. How to put word in random part of the string
